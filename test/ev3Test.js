@@ -5,9 +5,9 @@ var server = new WS({port: port})
 var ev3 = require('../lib/index')
 
 setTimeout(function () {
-  var run = ev3.robot('localhost:3000')
+  var ws = new WebSocket('ws://localhost:3000')
+  var run = ev3.robot(ws)
   run(function * () {
-    yield ev3.move().forever(50, 0)
     yield ev3.move().timed(2000, 50, 50)
     yield ev3.move().rotations(1, 50, 50)
   })
