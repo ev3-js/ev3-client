@@ -1,0 +1,32 @@
+{
+  "name": "ev3-client",
+  "version": "0.1.0",
+  "description": "Client for rtm-api",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@f/compose": "^1.0.1",
+    "@f/create-action": "^1.1.1",
+    "component-emitter": "^1.2.0",
+    "flo-bind": "^1.1.1",
+    "redux-flow": "^0.0.1",
+    "tape": "^4.5.1",
+    "ws": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "tape 'test/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ev3-js/ev3-client.git"
+  },
+  "author": "danleavitt0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ev3-js/ev3-client/issues"
+  },
+  "homepage": "https://github.com/ev3-js/ev3-client#readme"
+}
