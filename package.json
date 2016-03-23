@@ -7,13 +7,16 @@
     "test": "test"
   },
   "dependencies": {
+    "@f/channel": "^1.1.0",
     "@f/compose": "^1.0.1",
     "@f/create-action": "^1.1.1",
     "@f/defaults": "^1.0.1",
+    "@f/identity": "^1.1.1",
     "component-emitter": "^1.2.0",
     "flo-bind": "^1.1.1",
     "redux-flow": "^0.0.1",
-    "ws": "^1.0.1"
+    "ws": "^1.0.1",
+    "yoco": "^1.4.1"
   },
   "devDependencies": {
     "tape": "^4.5.1"
