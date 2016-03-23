@@ -9,6 +9,7 @@
   "dependencies": {
     "@f/compose": "^1.0.1",
     "@f/create-action": "^1.1.1",
+    "@f/defaults": "^1.0.1",
     "component-emitter": "^1.2.0",
     "flo-bind": "^1.1.1",
     "redux-flow": "^0.0.1",
