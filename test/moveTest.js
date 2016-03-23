@@ -107,23 +107,27 @@ function moveObj (command, opts) {
 }
 
 var runningReadOut = {
-  'b': {
-    type: 'lego-ev3-l-motor',
-    value: 'running'
-  },
-  'c': {
-    type: 'lego-ev3-l-motor',
-    value: 'running'
+  value: {
+    'b': {
+      type: 'lego-ev3-l-motor',
+      value: 'running'
+    },
+    'c': {
+      type: 'lego-ev3-l-motor',
+      value: 'running'
+    }
   }
 }
 
 var doneReadOut = {
-  'b': {
-    type: 'lego-ev3-l-motor',
-    value: ''
-  },
-  'c': {
-    type: 'lego-ev3-l-motor',
-    value: ''
+  value: {
+    'b': {
+      type: 'lego-ev3-l-motor',
+      value: ''
+    },
+    'c': {
+      type: 'lego-ev3-l-motor',
+      value: ''
+    }
   }
 }
