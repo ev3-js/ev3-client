@@ -17,6 +17,7 @@
     "@f/sleep": "^1.0.0",
     "flo-bind": "^1.1.1",
     "redux-flow": "^0.0.1",
+    "ws": "^1.0.1",
     "yoco": "^1.4.2"
   },
   "devDependencies": {
