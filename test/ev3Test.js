@@ -1,19 +1,20 @@
 var test = require('tape')
 var WS = require('ws').Server
-var port = 3000
+var port = 5000
 var server = new WS({port: port})
 var ev3 = require('../lib/index')
 
 setTimeout(function () {
   var run = ev3.robot('localhost')
   run(function * () {
-    yield ev3.move().timed(2000, 50, 50)
-    yield ev3.move().rotations(1, 50, 50)
+    yield ev3.move().timed(5000, 30, 0)
+    console.log('shouldnt happen')
+  })
+  run(function * () {
+    yield ev3.move().timed(5000, 30, 0)
+    console.log('shouldnt happen')
   })
 
-  ws.onerror = function (err) {
-    console.log(err)
-  }
 }, 1000)
 
 function startRun (socket) {
