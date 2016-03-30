@@ -1,18 +1,20 @@
 var test = require('tape')
-var read = require('../lib/actions').read
+var actions = require('../lib/actions')
+var read = actions.read
+var READ = actions.READ
 
 var sensorData = {
   value: {
     a: {
-      type: 'lego-ev3-us',
+      type: 'sonic',
       value: '50'
     },
     b: {
-      type: 'lego-ev3-touch',
+      type: 'touch',
       value: '1'
     },
     c: {
-      type: 'lego-ev3-color',
+      type: 'color',
       value: '5'
     }
   }
@@ -21,7 +23,7 @@ var sensorData = {
 
 test('read test', function (t) {
   var it = read()
-  t.deepEqual(it.next().value, {type: 'READ'})
+  t.deepEqual(it.next().value, {type: READ})
   var devices = it.next(sensorData).value
   t.equal(devices.sonic('a'), sensorData.value.a.value)
   t.equal(devices.touch('b'), sensorData.value.b.value)
