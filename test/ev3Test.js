@@ -14,7 +14,6 @@ setTimeout(function () {
     yield ev3.move().timed(5000, 30, 0)
     console.log('shouldnt happen')
   })
-
 }, 1000)
 
 function startRun (socket) {
@@ -44,31 +43,8 @@ function startRun (socket) {
 }
 
 server.on('connection', function (socket) {
-  socket.on('message', function (msg) {
-    console.log(msg)
-  })
-
   var interval = startRun(socket)
   setTimeout(function () {
     clearInterval(interval)
-    setInterval(function () {
-      socket.send(JSON.stringify({
-        type: 'sensor_read',
-        value: {
-          'b': {
-            type: 'motor',
-            value: ''
-          },
-          'c': {
-            type: 'motor',
-            value: ''
-          },
-          '1': {
-            type: 'touch',
-            value: '0'
-          }
-        }
-      }))
-    })
   }, 4000)
 })

@@ -1,8 +1,9 @@
 var test = require('tape')
-var read = require('../lib/read')
-var move = require('../lib/move')('b','c')
+var move = require('../lib/move')('b', 'c')
+var actions = require('../lib/actions')
+var WRITE = actions.WRITE
 
-test('forever', function (t) {
+test.only('forever', function (t) {
   var s = '50'
   var it = move.forever(s, 0)
   t.deepEqual(it.next().value, moveObj('run-forever', forever(s)))
@@ -95,11 +96,11 @@ function time (t, speed) {
 
 function moveObj (command, opts) {
   return {
-    type: "WRITE",
+    type: WRITE,
     payload: {
       type: 'motors_write',
       command: command,
-      ports: ['b', 'c'],
+      port: ['b', 'c'],
       opts: opts
     },
     meta: undefined

@@ -1,5 +1,5 @@
 var test = require('tape')
-var read = require('../lib/read')
+var read = require('../lib/actions').read
 
 var sensorData = {
   value: {
