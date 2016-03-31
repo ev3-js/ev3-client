@@ -1,6 +1,8 @@
 var test = require('tape')
-var read = require('../lib/read')
-var move = require('../lib/move')('b','c')
+var move = require('../lib/move')('b', 'c')
+var actions = require('../lib/actions')
+var WRITE = actions.WRITE
+var READ = actions.READ
 
 test('forever', function (t) {
   var s = '50'
@@ -29,8 +31,8 @@ test('degrees', function (t) {
   var speed = '50'
   var it = move.degrees(p, speed, 0)
   t.deepEqual(it.next().value, moveObj('run-to-rel-pos', position(p, speed)))
-  t.deepEqual(it.next().value, {type: 'READ'})
-  t.deepEqual(it.next(runningReadOut).value, {type: 'READ'})
+  t.deepEqual(it.next().value, {type: READ})
+  t.deepEqual(it.next(runningReadOut).value, {type: READ})
   t.equal(it.next(doneReadOut).done, true)
   t.end()
 })
@@ -39,8 +41,8 @@ test('rotations', function (t) {
   var speed = '50'
   var it = move.rotations(1, 50, 0)
   t.deepEqual(it.next().value, moveObj('run-to-rel-pos', position('360', speed)))
-  t.deepEqual(it.next().value, {type: 'READ'})
-  t.deepEqual(it.next(runningReadOut).value, {type: 'READ'})
+  t.deepEqual(it.next().value, {type: READ})
+  t.deepEqual(it.next(runningReadOut).value, {type: READ})
   t.equal(it.next(doneReadOut).done, true)
   t.end()
 })
@@ -50,8 +52,8 @@ test('timed', function (t) {
   var s = '50'
   var it = move.timed(ms, s, 0)
   t.deepEqual(it.next().value, moveObj('run-timed', time(ms, s)))
-  t.deepEqual(it.next().value, {type: 'READ'})
-  t.deepEqual(it.next(runningReadOut).value, {type: 'READ'})
+  t.deepEqual(it.next().value, {type: READ})
+  t.deepEqual(it.next(runningReadOut).value, {type: READ})
   t.equal(it.next(doneReadOut).done, true)
   t.end()
 })
@@ -95,11 +97,11 @@ function time (t, speed) {
 
 function moveObj (command, opts) {
   return {
-    type: "WRITE",
+    type: WRITE,
     payload: {
       type: 'motors_write',
       command: command,
-      ports: ['b', 'c'],
+      port: ['b', 'c'],
       opts: opts
     },
     meta: undefined
@@ -109,11 +111,11 @@ function moveObj (command, opts) {
 var runningReadOut = {
   value: {
     'b': {
-      type: 'lego-ev3-l-motor',
+      type: 'motor',
       value: 'running'
     },
     'c': {
-      type: 'lego-ev3-l-motor',
+      type: 'motor',
       value: 'running'
     }
   }
@@ -122,11 +124,11 @@ var runningReadOut = {
 var doneReadOut = {
   value: {
     'b': {
-      type: 'lego-ev3-l-motor',
+      type: 'motor',
       value: ''
     },
     'c': {
-      type: 'lego-ev3-l-motor',
+      type: 'motor',
       value: ''
     }
   }
