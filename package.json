@@ -1,6 +1,6 @@
 {
   "name": "ev3-client",
-  "version": "0.1.48",
+  "version": "0.1.49",
   "description": "Client for rtm-api",
   "main": "lib/index.js",
   "directories": {
@@ -33,8 +33,7 @@
     "clean": "rm -rf lib",
     "init:travis": "travis enable",
     "init": "npm install && npm run init:git && npm run init:travis",
-    "dev": "beefy src/index.js",
-    "validate": "standard"
+    "dev": "beefy src/index.js"
   },
   "repository": {
     "type": "git",
