@@ -26,7 +26,15 @@
     "tape": "^4.5.1"
   },
   "scripts": {
-    "test": "tape 'test/**/*.js'"
+    "test": "npm run validate && tape 'test/**/*.js'",
+    "preversion": "npm run validate",
+    "postversion": "git push && git push --tags && npm publish --access=public",
+    "validate": "standard",
+    "clean": "rm -rf lib",
+    "init:travis": "travis enable",
+    "init": "npm install && npm run init:git && npm run init:travis",
+    "dev": "beefy src/index.js",
+    "validate": "standard"
   },
   "repository": {
     "type": "git",

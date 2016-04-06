@@ -7,7 +7,7 @@ var READ = actions.READ
 test('forever', function (t) {
   var s = '50'
   var it = move.forever(s, 0)
-  t.deepEqual(it.next().value, moveObj('run-forever', forever(s)))
+  t.deepEqual(it.next().value, moveObj('run-forever', forever('400')))
   t.equal(it.next().done, true)
   t.end()
 })
@@ -30,7 +30,7 @@ test('degrees', function (t) {
   var p = '500'
   var speed = '50'
   var it = move.degrees(p, speed, 0)
-  t.deepEqual(it.next().value, moveObj('run-to-rel-pos', position(p, speed)))
+  t.deepEqual(it.next().value, moveObj('run-to-rel-pos', position(p, '400')))
   t.deepEqual(it.next().value, {type: READ})
   t.deepEqual(it.next(runningReadOut).value, {type: READ})
   t.equal(it.next(doneReadOut).done, true)
@@ -38,7 +38,7 @@ test('degrees', function (t) {
 })
 
 test('rotations', function (t) {
-  var speed = '50'
+  var speed = '400'
   var it = move.rotations(1, 50, 0)
   t.deepEqual(it.next().value, moveObj('run-to-rel-pos', position('360', speed)))
   t.deepEqual(it.next().value, {type: READ})
@@ -51,7 +51,7 @@ test('timed', function (t) {
   var ms = '1000'
   var s = '50'
   var it = move.timed(ms, s, 0)
-  t.deepEqual(it.next().value, moveObj('run-timed', time(ms, s)))
+  t.deepEqual(it.next().value, moveObj('run-timed', time(ms, '400')))
   t.deepEqual(it.next().value, {type: READ})
   t.deepEqual(it.next(runningReadOut).value, {type: READ})
   t.equal(it.next(doneReadOut).done, true)
@@ -62,11 +62,11 @@ function position (position, speed) {
   return {
     left: {
       'position_sp': position,
-      'duty_cycle_sp': speed
+      'speed_sp': speed
     },
     right: {
       'position_sp': position,
-      'duty_cycle_sp': speed
+      'speed_sp': speed
     }
   }
 }
@@ -74,10 +74,10 @@ function position (position, speed) {
 function forever (s) {
   return {
     left: {
-      'duty_cycle_sp': s
+      'speed_sp': s
     },
     right: {
-      'duty_cycle_sp': s
+      'speed_sp': s
     }
   }
 }
@@ -86,11 +86,11 @@ function time (t, speed) {
   return {
     left: {
       'time_sp': t,
-      'duty_cycle_sp': speed
+      'speed_sp': speed
     },
     right: {
       'time_sp': t,
-      'duty_cycle_sp': speed
+      'speed_sp': speed
     }
   }
 }
