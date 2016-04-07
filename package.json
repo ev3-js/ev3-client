@@ -1,6 +1,6 @@
 {
   "name": "ev3-client",
-  "version": "0.1.52",
+  "version": "0.1.53",
   "description": "Client for rtm-api",
   "main": "lib/index.js",
   "directories": {
