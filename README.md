@@ -10,18 +10,21 @@ npm install ev3-client
 ```js
 let {robot, move, read, sleep, motor} = require('ev3-client') //expose ev3-client methods
 var run = robot('ip address of websocket server') // connect to robot
-var steer = move('b', 'c')
+
+var steer = move('b', 'c') // set drive motors to ports b and c
+var motor1 = motor('a') // set arm motor to port a
 
 run(function * () {
-  var devices = yield read()
-  var dist = devices.sonic(1)
+  var devices = yield read() // read sensor data
+  var dist = devices.sonic(1) // get distance reading from ultrasonic sensor in port 1
 
   if (dist < 10) {
-    yield steer.rotations(-1, 40, 0)
+    yield steer.rotations(-1, 40, 0) // move one rotation backward
   } else {
-    yield steer.rotations(1, 40, 0)
+    yield steer.rotations(1, 40, 0) // move one rotation forward
   }
-  yield sleep(1000)
+  yield sleep(1000) // wait for 1 second
+  yield motor1.degrees(90, 40) // spin motor in port a 90 degrees
 })
 ```
 
