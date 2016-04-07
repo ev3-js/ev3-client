@@ -42,20 +42,20 @@ run(function * () {
 
 **Returns:** object of move functions
 
-##### .forever(speed, turn)
+#### .forever(speed, turn)
 Run both motors until they receive a stop command.
 
 - `speed` - number between 0 and 100 to control the speed at which to run the motors
 - `turn` - number between -100 and 100 to denote amount of turning. -100 is maximum left turn. 0 is straight. 100 is maximum right turn.
 
-##### .degrees(degrees, speed, turn)
+#### .degrees(degrees, speed, turn)
 Run both motors for a number of degrees with the ability to turn.
 
 - `degrees` - number of degrees for the motor to spin
 - `speed` - number between 0 and 100 to control the speed at which to run the motors
 - `turn` - number between -100 and 100 to denote amount of turning. -100 is maximum left turn. 0 is straight. 100 is maximum right turn.
 
-##### .rotations(rotations, speed, turn)
+#### .rotations(rotations, speed, turn)
 Run both motors with a number of degrees the ability to turn.
 
 - `rotations` - number of rotations for the motor to spin
@@ -69,10 +69,10 @@ Run both motor for a specified amount of time.
   - `speed` - number between 0 and 100 to control the speed at which to run the motors
   - `turn` - number between -100 and 100 to denote amount of turning. -100 is maximum left turn. 0 is straight. 100 is maximum right turn.
 
-##### .stop()
+#### .stop()
 Stop both motors.
 
-##### .reset()
+#### .reset()
 Stop and reset both motors.
 
 ### read()
@@ -80,7 +80,7 @@ Read the data from all devices connected to the robot
 
 **Returns** Object to access sensor data
 
-##### .touch(port)
+#### .touch(port)
 Reads the state of the touch sensor
 
 - `port` - the port the touch sensor is plugged in to
@@ -92,14 +92,14 @@ value | meaning
 0 | Not pressed
 1 | Pressed
 
-##### .sonic(port)
+#### .sonic(port)
 Reads the value of the ultrasonic sensor (defaults to inches)
 
 - `port` - the port the touch sensor is plugged in to
 
 **Returns** Number
 
-##### .color(port)
+#### .color(port)
 Reads the value of the color sensor (defaults to color)
 
 - `port` - the port the touch sensor is plugged in to
@@ -117,7 +117,7 @@ value | meaning
 6 | white
 7 | brown
 
-##### .ir(port)
+#### .ir(port)
 Reads the value of the infrared sensor (defaults to seek mode)
 
 - `port` - the port the touch sensor is plugged in to
@@ -131,7 +131,7 @@ Reads the value of the infrared sensor (defaults to seek mode)
   distance2: distance towards beacon with channel 2
 }
 ```
-##### .motor(port)
+#### .motor(port)
 Read the state of the motor
 
 - `port` - the port the motor is plugged in to
