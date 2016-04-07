@@ -1,4 +1,10 @@
 # ev3-client
+
+[![Build status][travis-image]][travis-url]
+[![Git tag][git-image]][git-url]
+[![NPM version][npm-image]][npm-url]
+[![Code style][standard-image]][standard-url]
+
 Client for rtm-api
 
 ## Installation
@@ -153,3 +159,12 @@ Pause execution for an amount of time
 
 ## license
 MIT
+
+[travis-image]: https://img.shields.io/travis/ev3-js/ev3-client.svg?style=flat
+[travis-url]: https://travis-ci.org/ev3-js/ev3-client
+[git-image]: https://img.shields.io/github/tag/ev3-js/ev3-client.svg?style=flat
+[git-url]: https://github.com/ev3-js/ev3-client
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat
+[standard-url]: https://github.com/feross/standard
+[npm-image]: https://img.shields.io/npm/v/ev3-client.svg?style=flat
+[npm-url]: https://npmjs.org/package/ev3-client
