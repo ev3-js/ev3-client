@@ -19,13 +19,6 @@ test('stop', function (t) {
   t.end()
 })
 
-test('reset', function (t) {
-  var it = move.reset()
-  t.deepEqual(it.next().value, moveObj('reset', {left: {}, right: {}}))
-  t.equal(it.next().done, true)
-  t.end()
-})
-
 test('degrees', function (t) {
   var p = '500'
   var speed = '50'

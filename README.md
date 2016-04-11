@@ -78,9 +78,6 @@ Run both motor for a specified amount of time.
 #### .stop()
 Stop both motors.
 
-#### .reset()
-Stop and reset both motors.
-
 ### read()
 Read the data from all devices connected to the robot
 
