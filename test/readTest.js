@@ -25,9 +25,9 @@ test('read test', function (t) {
   var it = read()
   t.deepEqual(it.next().value, {type: READ})
   var devices = it.next(sensorData).value
-  t.equal(devices.sonic('a'), sensorData.value.a.value)
-  t.equal(devices.touch('b'), sensorData.value.b.value)
-  t.equal(devices.color('c'), sensorData.value.c.value)
+  t.equal(devices.sonic('a'), Number(sensorData.value.a.value))
+  t.equal(devices.touch('b'), Number(sensorData.value.b.value))
+  t.equal(devices.color('c'), Number(sensorData.value.c.value))
   t.throws(() => devices.touch('c'))
   t.throws(() => devices.sonic('b'))
   t.throws(() => devices.color('a'))
