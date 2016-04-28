@@ -68,7 +68,7 @@ Run both motors with a number of degrees the ability to turn.
 - `speed` - number between 0 and 100 to control the speed at which to run the motors
 - `turn` - number between -100 and 100 to denote amount of turning. -100 is maximum left turn. 0 is straight. 100 is maximum right turn.
 
-##### .timed(time, speed, turn)
+#### .timed(time, speed, turn)
 Run both motor for a specified amount of time.
 
   - `time` - time in milliseconds
